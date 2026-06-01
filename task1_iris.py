@@ -49,3 +49,13 @@ plt.tight_layout()
 plt.savefig('Iris_Feature_Distributions.png', dpi=150, bbox_inches='tight') # type: ignore
 plt.close()
 print("✅ Saved: Iris_Feature_Distributions.png")
+
+# -- 5. Chart 2 - Pairplot by Species --
+palette = {'Iris-setosa': '#E74C3C',
+           'Iris-versicolor': '#3498DB',
+           'Iris-virginica': '#2ECC71'}
+pair = sns.pairplot(Iris, hue='Species', palette=palette, diag_kind='kde', plot_kws={'alpha':0.7, 's':60}) # type: ignore
+pair.figure.suptitle('🌸 Iris Pairplot by Species', y=1.02, fontsize=16, fontweight='bold') # type: ignore
+plt.savefig('Iris_Pairplot.png', dpi=150, bbox_inches='tight') # type: ignore
+plt.close()
+print("✅ Saved: Iris_Pairplot.png")
