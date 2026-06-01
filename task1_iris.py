@@ -102,3 +102,13 @@ print(f"\n{'='*45}")
 print("\n Classification Report:")
 print(classification_report(y_test, y_pred, target_names=le.classes_)) # type: ignore
 
+# -- 9.Chart 5 -Confusion Matrix --
+fig, ax = plt.subplots(figsize=(7, 5)) # type: ignore
+cm = confusion_matrix(y_test, y_pred) # type: ignore
+disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=le.classes_) # type: ignore
+disp.plot(ax=ax, colorbar=True, cmap='Blues') # type: ignore
+ax.set_title(f'🎯 Confusion Matrix(Accuracy: {acc*100:.1f}%)', fontsize=12,fontweight='bold') # type: ignore
+plt.tight_layout() # type: ignore
+plt.savefig('Iris_Confusion_Matrix.png', dpi=150, bbox_inches='tight') # type: ignore
+plt.close()
+print("✅ Saved: Iris_Confusion_Matrix.png")
