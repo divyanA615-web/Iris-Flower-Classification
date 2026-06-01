@@ -6,19 +6,15 @@ import pandas as pd
 import numpy as np # type: ignore
 import matplotlib
 matplotlib.use('Agg')
-import matplotlib.pyplot as plt # type: ignore
+import matplotlib.pyplot as plt
 import seaborn as sns # type: ignore
 import warnings
 warnings.filterwarnings('ignore')
 
-from sklearn.model_selection import train_test_split # type: ignore
+from sklearn.model_selection import train_test_split  # type: ignore
 from sklearn.preprocessing import LabelEncoder # type: ignore
-from sklearn.ensemble import RandomForestClassifier # type: ignore
-from sklearn.metrics import (
-accuracy_score, # type: ignore
-classification_report, # type: ignore
-confusion_matrix, # pyright: ignore[reportUnusedImport] # type: ignore # type: ignore # type: ignore
-ConfusionMatrixDisplay) # type: ignore
+from sklearn.ensemble import RandomForestClassifier  # type: ignore
+from sklearn.metrics import (accuracy_score, classification_report,confusion_matrix,ConfusionMatrixDisplay)  # type: ignore
 
 # -- 1.load the dataset --
 Iris = pd.read_csv(r"D:\data science related\iris_flower_classification\Iris-Flower-Classification\Iris.csv")
@@ -37,3 +33,19 @@ Iris = Iris.drop(columns=['Id']) #Id is not a feature
 print(f"\n--- Descriptive Statistics ---\n{Iris.describe().round(2)}")
 print(f"\n--- Class Distribution ---\n{Iris['Species'].value_counts()}")
 
+#-- 4.Chart 1 - Feature Distributions (Histograms) --
+
+fig, axes = plt.subplots(2, 2, figsize=(12, 8)) # type: ignore
+fig.suptitle('🌸 Iris Feature Distributions', fontsize=16, fontweight='bold') # type: ignore
+features = ['SepalLengthCm', 'SepalWidthCm', 'PetalLengthCm', 'PetalWidthCm']
+colors = ["#3980F1", '#DD8452', '#55A868', '#C44E52']
+for ax, feat, color in zip(axes.flatten(), features, colors):
+    Iris[feat].hist(ax=ax, bins=20, color=color, edgecolor='white', alpha=0.85)
+    ax.set_title(feat, fontweight='bold')
+    ax.set_xlabel('cm')
+    ax.set_ylabel('Frequency')
+    ax.grid(axis='y', alpha=0.3)
+plt.tight_layout()
+plt.savefig('Iris_Feature_Distributions.png', dpi=150, bbox_inches='tight') # type: ignore
+plt.close()
+print("✅ Saved: Iris_Feature_Distributions.png")
