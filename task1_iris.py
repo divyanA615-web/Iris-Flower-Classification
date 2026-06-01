@@ -85,4 +85,20 @@ plt.savefig('Iris_Boxplots.png', dpi=150, bbox_inches='tight') # type: ignore
 plt.close()
 print("✅ Saved: Iris_Boxplots.png")
 
+# -- 8. Machine Learning - Random Forest Classifier --
+X = Iris[features]
+le = LabelEncoder()
+y = le.fit_transform(Iris['Species'])
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y) # type: ignore
+model = RandomForestClassifier(n_estimators=100, random_state=42) # type: ignore
+model.fit(X_train, y_train) # type: ignore
+y_pred = model.predict(X_test) # type: ignore
+
+acc = accuracy_score(y_test, y_pred) # type: ignore
+print(f"\n{'='*45}")
+print(f"🎯 Random Forest Accuracy: {acc*100:.2f}%")
+print(f"\n{'='*45}")
+print("\n Classification Report:")
+print(classification_report(y_test, y_pred, target_names=le.classes_)) # type: ignore
 
