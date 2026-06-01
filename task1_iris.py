@@ -70,3 +70,19 @@ plt.tight_layout() # type: ignore
 plt.savefig('Iris_Correlation_Heatmap.png', dpi=150, bbox_inches='tight') # type: ignore
 plt.close()
 print("✅ Saved: Iris_Correlation_Heatmap.png")
+
+# -- 7. Chart 4 - Box Plot of Features by Species --
+fig, axes = plt.subplots(2, 2, figsize=(13, 9)) # type: ignore
+fig.suptitle('🌸 Feature Distributions by Species(Boxplots)',fontsize=14, fontweight='bold') # type: ignore
+for ax, feat in zip(axes.flatten(), features):
+    sns.boxplot(data=Iris, x='Species', y=feat,ax=ax, palette=palette,linewidth=1.5) # type: ignore
+    ax.set_title(feat, fontweight='bold')
+    ax.set_xlabel('')
+    ax.tick_params(axis='x', rotation=15) # type: ignore
+    ax.grid(axis='y', alpha=0.3)
+plt.tight_layout() # type: ignore
+plt.savefig('Iris_Boxplots.png', dpi=150, bbox_inches='tight') # type: ignore
+plt.close()
+print("✅ Saved: Iris_Boxplots.png")
+
+
