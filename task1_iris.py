@@ -32,3 +32,8 @@ print(f"\n--- Missing Values ---\n{Iris.isnull().sum()}")
 print(f"\n--- Duplicate Rows ---\n{Iris.duplicated().sum()} ---")
 Iris = Iris.drop_duplicates()
 Iris = Iris.drop(columns=['Id']) #Id is not a feature
+
+#-- 3. Statistics --
+print(f"\n--- Descriptive Statistics ---\n{Iris.describe().round(2)}")
+print(f"\n--- Class Distribution ---\n{Iris['Species'].value_counts()}")
+
