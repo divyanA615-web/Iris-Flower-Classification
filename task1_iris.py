@@ -112,3 +112,18 @@ plt.tight_layout() # type: ignore
 plt.savefig('Iris_Confusion_Matrix.png', dpi=150, bbox_inches='tight') # type: ignore
 plt.close()
 print("✅ Saved: Iris_Confusion_Matrix.png")
+
+# -- 10. Chart 6 - Feature Importance --
+importances = pd.Series(model.feature_importances_, index=features).sort_values(ascending=True) # type: ignore
+fig, ax = plt.subplots(figsize=(8, 4)) # type: ignore
+importances.plot(kind='barh', ax=ax, color=['#C44E52', '#55A868', '#DD8452', '#4C72B0']) # type: ignore
+ax.set_title('🎯 Feature Importance(Random Forest)', fontsize=13, fontweight='bold') # type: ignore
+ax.set_xlabel('Importance Score') # type: ignore
+for i, v in enumerate(importances):
+    ax.text(v + 0.002, i, f'{v:.3f}', va='center', fontweight='bold') # type: ignore
+plt.tight_layout() # type: ignore
+plt.savefig('Iris_Feature_Importance.png', dpi=150, bbox_inches='tight') # type: ignore
+plt.close()
+print("✅ Saved: Iris_Feature_Importance.png")
+
+print("\n=== Task 1 Completed: EDA + Classification on Iris Dataset ===")
