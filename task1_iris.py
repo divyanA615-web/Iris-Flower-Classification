@@ -59,3 +59,14 @@ pair.figure.suptitle('🌸 Iris Pairplot by Species', y=1.02, fontsize=16, fontw
 plt.savefig('Iris_Pairplot.png', dpi=150, bbox_inches='tight') # type: ignore
 plt.close()
 print("✅ Saved: Iris_Pairplot.png")
+
+# -- 6. Chart 3 - Correlation Heatmap --
+fig, ax = plt.subplots(figsize=(7, 5)) # type: ignore
+corr = Iris.drop("Species", axis=1).corr()
+mask = np.triu(np.ones_like(corr, dtype=bool))
+sns.heatmap(corr, annot=True, fmt=".2f", cmap='RdYlGn',mask=mask, linewidths=0.5, ax=ax,annot_kws={"size": 12, "weight": 'bold'}) # type: ignore
+ax.set_title('🌸 Iris Feature Correlation Heatmap', fontsize=13, fontweight='bold') # type: ignore
+plt.tight_layout() # type: ignore
+plt.savefig('Iris_Correlation_Heatmap.png', dpi=150, bbox_inches='tight') # type: ignore
+plt.close()
+print("✅ Saved: Iris_Correlation_Heatmap.png")
