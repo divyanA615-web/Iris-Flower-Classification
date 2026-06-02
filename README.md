@@ -8,7 +8,7 @@
 ## 📁 Repository Structure
 
 ```
-Iris-Flower-Classification/
+CodeAlpha_Iris-Flower-Classification/
 │
 ├── Iris.csv                          # Dataset (150 rows × 6 cols)
 ├── task1_iris.py                     # Full EDA + ML pipeline
@@ -136,8 +136,8 @@ Iris-Flower-Classification/
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/divyanA615-web/Iris-Flower-Classification.git
-cd Iris-Flower-Classification
+git clone https://github.com/divyanA615-web/CodeAlpha_Iris-Flower-Classification.git
+cd CodeAlpha_Iris-Flower-Classification
 ```
 
 ### 2. Install Dependencies
