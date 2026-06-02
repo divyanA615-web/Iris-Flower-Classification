@@ -17,7 +17,7 @@ from sklearn.ensemble import RandomForestClassifier  # type: ignore
 from sklearn.metrics import (accuracy_score, classification_report,confusion_matrix,ConfusionMatrixDisplay)  # type: ignore
 
 # -- 1.load the dataset --
-Iris = pd.read_csv(r"D:\data science related\iris_flower_classification\Iris-Flower-Classification\Iris.csv")
+Iris = pd.read_csv(r'./Iris.csv') # type: ignore
 print("=== IRIS DATASET LOADED===")
 print(f"shape: {Iris.shape}")
 print(f"columns: {Iris.columns.to_list()}")
